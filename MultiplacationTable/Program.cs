@@ -14,11 +14,13 @@ namespace MultiplacationTable
             {
                 for(int j = 1; j < 10; j++)
                 {
-
-                   row = row + "|" + (i * j);
+                   if (i * j < 10) { row = row + "| " + (i * j); }
+                   else { row = row + "|" + (i * j); }                  
                 }
-                
-                Console.WriteLine(row,"| \n");
+
+                row = row + "|";
+                Console.WriteLine(row);
+              
                 row = "";
             }
         }

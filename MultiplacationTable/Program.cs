@@ -18,7 +18,7 @@ namespace MultiplacationTable
                    row = row + "|" + (i * j);
                 }
                 
-                Console.WriteLine(row,"\n");
+                Console.WriteLine(row,"| \n");
                 row = "";
             }
         }

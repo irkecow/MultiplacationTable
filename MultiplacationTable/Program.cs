@@ -9,50 +9,54 @@ namespace MultiplacationTable
     {
         static void WriteBar(int legnth)
         {
-            string line = "+";
+            string line = "+"; //put the "+" in front of the string
         
-            for (int i = 0; i < legnth * 5 - 1; i++) {
-                line = line + "-";
+            for (int i = 0; i < legnth * 5 - 1; i++) { //b/c there 5 spaces for the numbers we add 5 "-" for each number then "remove" one.
+                line = line + "-";//add the "-"s
             }
 
-            line = line + "+";
+            line = line + "+"; //put the "+" at the end
 
-            Console.WriteLine(line);
+            Console.WriteLine(line); //output the line
             
         }
-        static void Main()
-        {
-            string row = "";
 
+        static int getNumber()
+        {
             Console.WriteLine("What number should the table go up to?\n");
             string maxNumberString = Console.ReadLine();
 
-            int maxNumber = Int32.Parse(maxNumberString);
+            return(Int32.Parse(maxNumberString));
+        }
+        static void Main()
+        {
+            string row = ""; //a string to store each row b/c Console.WriteLine has a built in \n at the end
 
-            int LineLegnth = maxNumber;
+            int maxNumber = getNumber(); //call get number to get the user to input a valid number
 
-            Console.WriteLine("\n\n");
+            int LineLegnth = maxNumber; //set the legnth of the line
+            maxNumber = maxNumber + 1; //add one to the max number because arrys start at 0 and we don't use 0 on this table
 
-            WriteBar(LineLegnth);
+            Console.Clear(); //clear the console to remove the users input
 
-            maxNumber = maxNumber + 1;
+            WriteBar(LineLegnth); //put the bar ontop of the table
 
-            for (int i = 1; i < maxNumber; i++)
+            for (int i = 1; i < maxNumber; i++) //up
             {
-                for(int j = 1; j < maxNumber; j++)
+                for(int j = 1; j < maxNumber; j++) //rows
                 {
                     if (i * j < 10) { row = row + "|   " + (i * j); }
                     else if (i * j < 100) { row = row + "|  " + (i * j); }
                     else if (i * j < 1000) { row = row + "| " + (i * j); }
-                    else { row = row + "| " + (i * j); }
+                    else { row = row + "| " + (i * j); } //a shitty hardcoded way to do spacing.
                 }
 
-                row = row + "|";
-                Console.WriteLine(row);
+                row = row + "|"; //put a line at the end of each row
+                Console.WriteLine(row); //output the rows
               
-                row = "";
+                row = ""; //clear the rows
             }
-            WriteBar(LineLegnth);
+            WriteBar(LineLegnth); //bottom bar.
         }
     }
 }

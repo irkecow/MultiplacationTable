@@ -48,7 +48,7 @@ namespace MultiplacationTable
                     if (i * j < 10) { row = row + "|   " + (i * j); }
                     else if (i * j < 100) { row = row + "|  " + (i * j); }
                     else if (i * j < 1000) { row = row + "| " + (i * j); }
-                    else { row = row + "| " + (i * j); } //a shitty hardcoded way to do spacing.
+                    else { row = row + "| " + (i * j); } //a shitty hardcoded way to do spacing. breakes if the number entered is over 31
                 }
 
                 row = row + "|"; //put a line at the end of each row

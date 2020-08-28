@@ -24,9 +24,25 @@ namespace MultiplacationTable
         static int getNumber()
         {
             Console.WriteLine("What number should the table go up to?\n");
-            string maxNumberString = Console.ReadLine();
+            string maxNumberString;
 
-            return(Int32.Parse(maxNumberString));
+            while (true)
+            {
+                try
+                {
+                    maxNumberString = Console.ReadLine();
+                    int maxNumber = Int32.Parse(maxNumberString);
+                    if (maxNumber > 31) {
+                        Console.WriteLine("Please Enter a Number under 31\n");
+                    }
+                    else { return (maxNumber); }
+                }
+                catch (System.FormatException)
+                {
+                    Console.WriteLine("Please Enter a Valid Number\n");
+                    maxNumberString = "";
+                }
+            }
         }
         static void Main()
         {
